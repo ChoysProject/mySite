@@ -1,5 +1,5 @@
 """
-URL configuration for mySite project.
+URL configuration for mysite project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -23,7 +23,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
-    path('', include('single_pages.urls'))
+    path('markdownx/', include('markdownx.urls')),
+    path('', include('single_pages.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

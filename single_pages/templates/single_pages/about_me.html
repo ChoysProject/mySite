@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>About 조영상</title>
+
+    <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}"
+          media="screen">
+    <link rel="stylesheet" href="{% static 'single_pages/css/about_me.css' %}"
+          media="screen">
+    <script src="https://kit.fontawesome.com/726bbd6862.js" crossorigin="anonymous">
+
+    </script>
+</head>
+<body>
+
+<style>
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+</style>
+
+{% include 'blog/navbar.html' %}
+
+<section class="resume-section"> <div class="container"> <div class="row"> <div class="col-lg-8"> <h1 class="mb-4">안녕하세요. 조영상입니다.</h1> <p class="lead"> 취미로 운동과 스토우보드 등 스포츠레저를 좋아합니다.<br> 금융IT회사에서 돈을 벌고, 퇴근 후에는 운동을 하거나 웹 서핑을 하면서 지냅니다. </p>
+
+            <div class="resume-section">
+                <h3>WORK EXPERIENCE</h3>
+                <ul class="list-unstyled">
+                    <li>세번째 회사 (2023.08 ~ 현재)</li>
+                    <li>두번째 회사 (2023.02 ~ 2023.08)</li>
+                    <li>첫번째 회사 (2020.08 ~ 2023.02)</li>
+                </ul>
+            </div>
+
+            <div class="resume-section">
+                <h3>EDUCATION</h3>
+                <ul class="list-unstyled">
+                    <li>대학원 재학</li>
+                    <li>대학교 졸업</li>
+                    <li>고등학교 졸업</li>
+                </ul>
+            </div>
+
+            <div class="resume-section">
+                <h3>SKILLS</h3>
+                <ul class="list-unstyled">
+                    <li>Python, Django, Flask, FastAPI 등 Python 기반 웹 프레임워크 능숙</li>
+                    <li>DSQL, NoSQL 데이터베이스(MySQL, PostgreSQL, MongoDB 등) 설계 및 구현</li>
+                    <li>Docker, Kubernetes 등 컨테이너 기술 이해 및 활용</li>
+                    <li>Kafka, Elasticsearch 등 분산 시스템 운영 경험</li>
+                    <li>React, Vue.js 등 프론트엔드 기술 이해도</li>
+                </ul>
+            </div>
+
+            <div class="resume-section">
+                <h3>PROJECTS</h3>
+                <ul class="list-unstyled">
+                    <li>통합로그 시스템(2024.08 ~ 현재)</li>
+                    <li>EAI (2024.08 ~ 현재)</li>
+                    <li>MCI (2024.08 ~ 현재)</li>
+                    <li>MOP (Maketing Optimazation Platform) (2022.09 ~ 2023.02)</li>
+                    <li>웹 스몰오더 (2023.03 ~ 2023.05)</li>
+                    <li>티비채팅 챗봇 (2023.06 ~ 2023.08)</li>
+                    <li>080 스몰오더 (2023.09 ~ 2024.01)</li>
+                    <li>로봇 스몰오더 (2024.02 ~ 2024.04)</li>
+                    <li>RCS 스몰오더 (2024.05 ~ 2024.07)</li>
+                    <li>DMS(Device Management System) (2022.08 ~ 2022.06)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <img class="img-fluid rounded-circle" src="{% static 'single_pages/images/1111.jpg' %}">
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="bg-light margin-for-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+              <div class="card" data-toggle="modal" data-target="#mci_modal">
+                <img class="card-img-top" src="{% static 'single_pages/images/amsterdam_sky.jpg' %}" alt="MCI">
+                <div class="card-body">
+                  <h5 class="card-title">MCI</h5>
+                  <p class="card-text">증권내에서 발생하는 트래픽 및 호처리를 담당하는 GW</p>
+                </div>
+              </div>
+            </div>
+          <div class="col-lg-3">
+            <div class="card" data-toggle="modal" data-target="#EAI_modal">
+              <img class="card-img-top" src="{% static 'single_pages/images/EAI.jpg' %}" alt="EAI">
+              <div class="card-body">
+                <h5 class="card-title">EAI</h5>
+                <p class="card-text">증권 내 모든 인터페이스를 개발 및 유지 보수</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card" data-toggle="modal" data-target="#automation_python">
+              <img class="card-img-top" src="{% static 'single_pages/images/automation_python.png' %}" alt="MOP">
+              <div class="card-body">
+                <h5 class="card-title">MOP (Maketing Optimazation Platform)</h5>
+                <p class="card-text">AI / 빅데이터를 활용한 광고 최적화 플랫폼</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card" data-toggle="modal" data-target="#automation_python">
+              <img class="card-img-top" src="{% static 'single_pages/images/123.jpg' %}" alt="웹 스몰오더">
+              <div class="card-body">
+                <h5 class="card-title">웹 스몰오더</h5>
+                <p class="card-text">웹상으로 주문을 할 수 있는 프로젝트</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="card" data-toggle="modal" data-target="#pycon2017">
+              <img class="card-img-top" src="{% static 'single_pages/images/345.jpg' %}" alt="로봇 스몰오더">
+              <div class="card-body">
+                <h5 class="card-title">로봇 스몰오더</h5>
+                <p class="card-text">주문 시 로봇이 직접 배달을 해주는 프로젝트</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card" data-toggle="modal" data-target="#inflearn_django2">
+              <img class="card-img-top" src="{% static 'single_pages/images/678.jpg' %}" alt="지능망 스몰오더">
+              <div class="card-body">
+                <h5 class="card-title">지능망 스몰오더</h5>
+                <p class="card-text">080 전화로 전화하면 해당 전화기로 메시지를 보내어 주문 할 수 있게 하는 프로젝트</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card" data-toggle="modal" data-target="#automation_python">
+              <img class="card-img-top" src="{% static 'single_pages/images/4545.jpg' %}" alt="RCS 스몰오더">
+              <div class="card-body">
+                <h5 class="card-title">RCS 스몰오더</h5>
+                <p class="card-text">배민과는 다르게 문자메시지를 통해서 주문을 할 수 있는 프로젝트</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card" data-toggle="modal" data-target="#automation_python">
+              <img class="card-img-top" src="{% static 'single_pages/images/123.jpg' %}" alt="티비채팅 챗봇">
+              <div class="card-body">
+                <h5 class="card-title">티비채팅 챗봇</h5>
+                <p class="card-text">티비를 보면서 채팅을 할 수 있는 프로젝트</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="card" data-toggle="modal" data-target="#automation_python">
+              <img class="card-img-top" src="{% static 'single_pages/images/다운로드.jpg' %}" alt="DMS">
+              <div class="card-body">
+                <h5 class="card-title">DMS</h5>
+                <p class="card-text">FOTA를 사용해서 원격으로 펌 웨어 업데이트를 할 수 있는 프로젝트</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="mci_modal" tabindex="-1" role="dialog" aria-labelledby="mciModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mciModalLabel">MCI (Message Control Interface)</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-7">
+            <img class="img-fluid" src="{% static 'single_pages/images/amsterdam_sky.jpg' %}" alt="MCI">
+          </div>
+          <div class="col-lg-5">
+            <p>MCI는 증권내에서 발생하는 트래픽 및 호처리를 담당하는 GW입니다.</p>
+            <a href="#" class="btn btn-light"><i class="fas fa-info-circle"></i> 더 알아보기</a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="EAI_modal" tabindex="-1" role="dialog" aria-labelledby="EAIModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="EAIModalLabel">EAI</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-7">
+            <img class="img-fluid" src="{% static 'single_pages/images/EAI.jpg' %}" alt="EAI">
+          </div>
+          <div class="col-lg-5">
+            <p>EAI는 증권내에서 모든 인터페이스를 관리 및 개발합니다.</p>
+            <a href="#" class="btn btn-light"><i class="fas fa-info-circle"></i> 더 알아보기</a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="pycon2017" tabindex="-1" role="dialog" aria-labelledby="pycon2017ModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pycon2017ModalLabel">파이썬으로 통계업무 자동화하기</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <img class="img-fluid" src="{% static 'single_pages/images/pycon_sy_2017.png' %}">
+                    </div>
+                    <div class="col-lg-5">
+                        <p>Python, Django, Pandas, python-docx로 통계업무 자동화한 내용을 파이콘에서 발표했습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="inflearn_django2" tabindex="-1" role="dialog" aria-labelledby="inflearnDjangoModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id=" inflearnDjangoModalLabel">파이썬 사용자를 위한 웹개발 입문 A to Z Django +
+                    Bootstrap</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <img class="img-fluid" src="{% static 'single_pages/images/inflearn_django2.png' %}">
+                    </div>
+                    <div class="col-lg-5">
+                        <p>파이썬 초보를 대상으로 한 웹개발 강좌입니다. 인프런에서 서비스하고 있습니다.</p>
+                        <button type="button" class="btn btn-light"><i class="fas fa-chalkboard-teacher"></i> 인프런</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="automation_python" tabindex="-1" role="dialog" aria-labelledby="automationPythonModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id=" automationPythonModalLabel">직장인을 위한 프로그래밍 입문과 업무자동화 활용</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <img class="img-fluid" src="{% static 'single_pages/images/automation_python.png' %}">
+                    </div>
+                    <div class="col-lg-5">
+                        <p>코딩에 대해 아무것도 모르는 직장인들도 쉽게 프로그래밍의 기본 개념과 문법을 실습을 통해 배우고, 파일 입출력,
+                            엑셀 데이터 처리, MS-word 문서 자동으로 만들기, 그래프 그리기, 웹스크래핑 등을 배웁니다.</p>
+                        <button type="button" class="btn btn-light"><i class="fas fa-chalkboard-teacher"></i> 인프런</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="fixed-bottom">
+    {% include 'blog/footer.html' %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+
+</body>
+</html>
