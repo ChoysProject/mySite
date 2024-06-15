@@ -1,51 +1,125 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Do It Django</title>
+    <title>Welcome, My Note</title>
 
     <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'single_pages/css/landing.css' %}" media="screen">
     <script src="https://kit.fontawesome.com/726bbd6862.js" crossorigin="anonymous"></script>
+    <style>
+    .projects ul li:hover {
+        color: #007bff;
+        cursor: pointer;
+    }
+
+    .card-list-container::-webkit-scrollbar {
+    display: none;
+    }
+
+    .card-list-container::-webkit-scrollbar {
+    display: none;
+    }
+
+    .popup-container {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .popup-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 30%;
+    }
+
+    .close-button {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    </style>
 </head>
 <body>
-
 {% include 'blog/navbar.html' %}
 
 <section>
     <div class="container">
         <div class="row justify-content-between">
-            <div class="col-lg-6 text-light">
-                <h1 class="mt-5">Do It Django</h1>
-                <p>파이썬 진영의 가장 대표적인 웹프레임워크 중 하나인 django를 이용하여 여러분만의 블로그 사이트를 만들어보세요.</p>
+            <div class="col-lg-6 text-light"><h1 class="mt-5">Hello, My Note</h1>
+                <p style="font-size: 1.2rem;">The projects I have worked on in the past.</p>
+                <br><br>
+                <div class="projects"><h3 class="text-light">My Projects</h3>
+                    <ul>
+                        <li>MCI</li>
+                        <li>EAI (Enterprise Application Integration)</li>
+                        <li>통합로그 시스템</li>
+                        <li>MOP (Maketing Optimazation Platform)</li>
+                        <li>웹 스몰오더</li>
+                        <li>로봇배송 스몰오더</li>
+                        <li>지능망 스몰오더</li>
+                        <li>RCS 스몰오더</li>
+                        <li>티비채팅 챗봇</li>
+                        <li>DMS (Devise Management System)</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="col-lg-5 mt-5">
-                <h2 class="text-light">Blog - Recent posts</h2>
+                <h2 class="text-light">Note - Recent posts</h2>
 
-                {% for post in recent_posts %}
-                    <div class="card mt-1">
+                {% if show_scroll %}
+                <div class="card-list-container overflow-auto" style="max-height: 500px; scrollbar-width: none;">
+                    {% for post in recent_posts %}
+                    <div class="card mt-3">
                         <div class="card-body">
                             <h6><a href="{{ post.get_absolute_url }}" class="text-decoration-none text-dark">
                                 {{ post.title }}</a></h6>
                             <span class="badge badge-pill badge-light float-right">
                                 {{ post.author }}
                                 {{ post.created_at }}
-                           </span>
+                            </span>
                         </div>
                     </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {% for post in recent_posts %}
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h6><a href="{{ post.get_absolute_url }}" class="text-decoration-none text-dark">
+                            {{ post.title }}</a></h6>
+                        <span class="badge badge-pill badge-light float-right">
+                            {{ post.author }}
+                            {{ post.created_at }}
+                        </span>
+                    </div>
+                </div>
                 {% endfor %}
-
+                {% endif %}
             </div>
         </div>
     </div>
 </section>
-
-<div class="fixed-bottom">
-    {% include 'blog/footer.html' %}
-</div>
-
+<div class="fixed-bottom"> {% include 'blog/footer.html' %}</div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -56,6 +130,63 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
-
+<div id="popup-container" class="popup-container">
+    <div id="popup-content" class="popup-content">
+        <span class="close-button">&times;</span>
+        <h2 id="popup-title"></h2>
+        <p id="popup-description"></p>
+    </div>
+</div>
 </body>
 </html>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+       // 프로젝트 목록 요소 가져오기
+       const projectItems = document.querySelectorAll('.projects ul li');
+
+       // 팝업창 관련 요소 가져오기
+       const popupContainer = document.getElementById('popup-container');
+       const popupTitle = document.getElementById('popup-title');
+       const popupDescription = document.getElementById('popup-description');
+       const closeButton = document.querySelector('.close-button');
+
+       // 프로젝트 목록
+       const projects = [
+           "MCI",
+           "EAI (Enterprise Application Integration)",
+           "통합 로그 시스템",
+           "MOP (Maketing Optimazation Platform)",
+           "웹 스몰오더",
+           "로봇배송 스몰오더",
+           "지능망 스몰오더",
+           "RCS 스몰오더",
+           "티비채팅 챗봇",
+           "DMS (Devise Management System)"
+       ];
+
+       // 각 프로젝트 목록 클릭 이벤트 핸들러
+       projectItems.forEach((item, index) => {
+           item.addEventListener('click', () => {
+               // 팝업창 제목과 설명 업데이트
+               popupTitle.textContent = `Project Name : ${projects[index]}`;
+               popupDescription.textContent = `프로젝트의 이름은 ${projects[index]} 입니다.`;
+
+               // 팝업창 표시
+               popupContainer.style.display = 'block';
+           });
+       });
+
+       // 팝업창 닫기 버튼 클릭 이벤트 핸들러
+       closeButton.addEventListener('click', () => {
+           popupContainer.style.display = 'none';
+       });
+
+       // 팝업창 외부 클릭 시 닫기
+       window.addEventListener('click', (event) => {
+           if (event.target == popupContainer) {
+               popupContainer.style.display = 'none';
+           }
+       });
+    });
+</script>
